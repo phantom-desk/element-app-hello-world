@@ -1,38 +1,58 @@
 {
   "name": "element-app-hello-world",
-  "version": "0.0.0",
+  "version": "0.0.5",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "pkg": "rimraf dist && ng build && concat-glob-cli -f dist/**/*.js -o dist/element-app-hello-world.js && copyfiles -u 1 src/assets/*.ico dist && rimraf dist/element-app-hello-world"
   },
-  "private": true,
-  "dependencies": {
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^17.3.7",
     "@angular/animations": "^17.3.0",
+    "@angular/cli": "^17.3.7",
     "@angular/common": "^17.3.0",
     "@angular/compiler": "^17.3.0",
+    "@angular/compiler-cli": "^17.3.0",
     "@angular/core": "^17.3.0",
+    "@angular/elements": "^17.3.9",
     "@angular/forms": "^17.3.0",
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
-    "rxjs": "~7.8.0",
-    "tslib": "^2.3.0",
-    "zone.js": "~0.14.3"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "^17.3.7",
-    "@angular/cli": "^17.3.7",
-    "@angular/compiler-cli": "^17.3.0",
     "@types/jasmine": "~5.1.0",
+    "concat-glob-cli": "^0.1.0",
+    "copyfiles": "^2.4.1",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.4.2"
+    "rimraf": "^5.0.7",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "typescript": "~5.4.2",
+    "zone.js": "~0.14.3"
+  },
+  "big-data-processor": {
+    "name": "Element App Hello World",
+    "type": "element",
+    "author": "Chi Yang",
+    "email": "chiyang1118@gmail.com",
+    "description": "This is an example app",
+    "element": "dist/element-app-hello-world.js",
+    "icon": "dist/assets/favicon.ico",
+    "tagName": "element-app-hello-world",
+    "isModule": true,
+    "scopes": [
+      "project.read",
+      "mongo.bdp-elem-example",
+      "state",
+      "sync",
+      "custom-message"
+    ]
   }
 }

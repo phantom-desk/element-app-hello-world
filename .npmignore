@@ -1,0 +1,10 @@
+# We only push dist folder to npm for a smaller bundle size of Element App
+/src
+.angular
+.vscode
+
+.editorconfig
+angular.json
+karma.conf.js
+tsconfig.*
+
